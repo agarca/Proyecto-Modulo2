@@ -1,0 +1,18 @@
+﻿@model VideogamesCodex.Models.Videogames
+@{
+    ViewBag.Title = "Search Game";
+}
+@using (Html.BeginForm("Save", "Home", FormMethod.Post, new { id = "frm-videogames" }))
+{
+    <div class="panel panel-default">
+        <div class="panel-heading">Game Information</div>
+        <div class="panel-body">
+            <div class="form-group">
+                @Html.TextBox("txt")
+            </div>
+        </div>
+    </div>
+    <div class="text-right">
+        <button type="submit" class="btn btn-primary">Search</button>
+    </div>
+}

@@ -1,0 +1,42 @@
+﻿@model VideogamesCodex.Models.Videogames
+@{
+    ViewBag.Title = "Show";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Show</title>
+</head>
+<body>
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            @Model.name
+            <a class="btn btn-xs btn-primary" href="~/home/modify/@Model.id">Edit</a>
+            <a onclick="return confirm('¿Deseas eliminar esta tarea?');" class="btn btn-xs btn-danger" href="~/home/remove/@Model.id">Remove</a>
+    </div>
+    <div class="panel-body">
+        <dl class="dl-horizontal">
+            <dt>Name</dt>
+            <dd>@Model.name</dd>
+            <dt>Publisher</dt>
+            <dd>@(Model.publisher)</dd>
+            <dt>Year</dt>
+            <dd>@Model.year</dd>
+            <dt>Genre</dt>
+            <dd>@Model.Genre</dd>
+            <dt>Platform</dt>
+            <dd>@Model.Platform</dd>
+            <dt>Score</dt>
+            <dd>@Model.score</dd>
+            <dt>Online</dt>
+            <dd>@(Model.online == true ? "Sí" : "No")</dd>
+            <dt>PEGI</dt>
+            <dd>@Model.Pegi</dd>
+        </dl>
+    </div>
+</div>
+</body>
+</html>

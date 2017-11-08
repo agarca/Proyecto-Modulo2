@@ -1,0 +1,51 @@
+﻿@model List<VideogamesCodex.Models.Videogames>
+@{
+    ViewBag.Title = "Index";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>Index</title>
+</head>
+<body>
+    <h3 class="page-header">
+        Game List
+        <a class="btn btn-xs btn-primary" href="~/Home/create/">New Game</a>
+    </h3>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th style="width:200px;">Name</th>
+                <th style="width:200px;">Publisher</th>
+                <th style="width:200px;">Genre</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (VideogamesCodex.Models.Videogames videogames in Model)
+            {
+                <tr>
+                    <td>@(videogames.name)</td>
+                    <td>@(videogames.publisher)</td>
+                    <td>@(videogames.Genre)</td>
+                    <td>
+                        <a class="btn btn-xs btn-default" href="~/home/show/@videogames.id">Show</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <a class="btn btn-xs btn-primary" href="~/home/ranking/">Show Ranking</a>
+    <div>
+        @using (Html.BeginForm("Search", "Home", FormMethod.Get))
+        {
+            <p>
+                Search Game: @Html.TextBox("word")
+                <Input type="submit" value="Search"/>
+            </p>
+        }
+    </div>
+</body>
+</html>
